@@ -1,0 +1,118 @@
+@use "../../GlobalStyles/index" as *;
+@use "../../Utils/mixins" as *;
+@use "../../Utils/variables" as *;
+
+.navbar-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: $header-top-height;
+  background-color: $app-color-11;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  z-index: 1;
+  &__logo {
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    object-fit: contain;
+  }
+}
+
+.navbar-content {
+  height: 100%;
+  background-color: $app-color-11;
+  padding: 30px 20px 0 20px;
+  box-shadow: 1px 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-content{
+  padding: 20px;
+}
+
+.sidebar-content__main p{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.sidebar-content__main-link{
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: $app-color-5;
+  font-weight: bold;
+  transition: background-color ease-in-out .2s;
+  /*border: 1px solid var(--border-slick);*/
+}
+
+.sidebar-content__main-link:hover{
+  color: $app-color-5;
+  font-weight: bold;
+}
+
+.sidebar-content__main-link.sidebar-content__main-link--choose:hover{
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.sidebar-content__main-link--choose, .sidebar-content__main-link:focus, .sidebar-content__main-link:focus-visible{
+  color: #ffffff;
+  background-color: $app-color-13;
+  font-weight: 500;
+}
+
+.sidebar-content__main-link i{
+  margin-right: 10px;
+}
+
+.sidebar-content__main-link span{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/*sidebar content all*/
+
+.sidebar-content__all-list{
+  padding-left: 0;
+}
+
+/*sidebar content*/
+.sidebar-content__all-item{
+  overflow: hidden;
+}
+
+.sidebar-content__all-item__list{
+  max-height: 0;
+  transition: max-height ease-in-out .5s;
+  margin-top: 10px;
+}
+
+.sidebar-content__all-item__list a:hover, .sidebar-content__all-item__list a:focus{
+  color: $app-color-13;
+}
+
+.sidebar-content__all-item__list-item{
+  color: $app-color-5;
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.sidebar-content__all-item__list-item--choose{
+  color: $app-color-13;
+}
+
+.sidebar-content__all-item__list-item i{
+  margin-right: 10px;
+  font-size: 10px;
+}
+
+.sidebar-content__all-item__list-item span{
+  font-size: 14px;
+  font-weight: bold;
+}

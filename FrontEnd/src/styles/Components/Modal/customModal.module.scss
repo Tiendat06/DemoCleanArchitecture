@@ -1,0 +1,23 @@
+@use "../../GlobalStyles/index" as *;
+@use "../../Utils/mixins" as *;
+@use "../../Utils/variables" as *;
+
+.modal {
+
+  &-label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  &-input {
+    margin-bottom: 10px;
+
+    &:focus{
+      box-shadow: none;
+      border: 1px solid $app-color-13;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@use "../../GlobalStyles/index" as *;
+@use "../../Utils/mixins" as *;
+@use "../../Utils/variables" as *;
+
+.app {
+  display: flex;
+  flex-wrap: wrap;
+  &-navbar {
+    width: 18%;
+  }
+
+  &-content {
+    width: 82%;
+  }
+
+  &-login {
+    background-color: $app-color-12;
+  }
+}

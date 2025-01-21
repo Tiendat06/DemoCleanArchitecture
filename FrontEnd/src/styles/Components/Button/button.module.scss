@@ -1,0 +1,15 @@
+@use "../../GlobalStyles/index" as *;
+@use "../../Utils/mixins" as *;
+@use "../../Utils/variables" as *;
+
+.button-default-1{
+  background: $app-color-14;
+  padding: 15px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  color: $app-color-11;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
