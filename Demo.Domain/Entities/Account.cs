@@ -43,5 +43,6 @@ namespace Demo.Domain.Entities
 
         [NotMapped]
         public User? User { get; set; } = null;
+        // test
     }
 }
