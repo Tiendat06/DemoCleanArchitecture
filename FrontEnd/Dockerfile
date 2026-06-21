@@ -2,7 +2,7 @@
 FROM node:22-alpine AS builder
 WORKDIR /app
 
-ENV REACT_APP_API_URL=http://demo-api.swtcmn.id.vn
+ENV REACT_APP_API_URL=https://demo-api.swtcmn.id.vn
 ENV PORT=3000
 
 COPY package*.json yarn.lock ./
