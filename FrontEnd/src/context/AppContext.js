@@ -15,16 +15,19 @@ export const AppProvider = ({ children }) => {
     const [dashBoardSubLink, setDashBoardSubLink] = useState('');
 
     useEffect(() => {
+        const userId = userData?.userId;
+        if(!userId) return;
+
         const getUserById = async () => {
-            if(userData){
-                const data = await FetchAPI({
-                    url: `api/User/${userData?.userId}`,
-                });
+            const data = await FetchAPI({
+                url: `api/User/${userId}`,
+            });
+            if(data?.data){
                 setUserData(data.data);
             }
         }
         getUserById();
-    }, [userData]);
+    }, [userData?.userId]);
 
     useEffect(() => {
         setCurrentLocation(currentPath)
