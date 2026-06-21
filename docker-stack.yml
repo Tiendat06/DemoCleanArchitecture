@@ -23,9 +23,11 @@ services:
     ports:
       - "5000:3000"
     deploy:
+      replicas: 3
+      update_config:
+        parallelism: 2
       restart_policy:
         condition: any
-    replicas: 3
     environment:
       - ASPNETCORE_ENVIRONMENT=InternalDevelopment
       # - FE_URL=http://localhost:3000
