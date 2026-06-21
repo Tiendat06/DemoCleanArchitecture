@@ -48,4 +48,4 @@ services:
 
 networks:
   webnet:
-    driver: overlay
+    external: true
