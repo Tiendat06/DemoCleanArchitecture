@@ -6,7 +6,7 @@ configs:
 
 services:
 
-  swt-nginx:
+  nginx:
     image: nginx:alpine
     ports:
       - "3001:3001"
@@ -14,24 +14,25 @@ services:
       - source: nginx_conf
         target: /etc/nginx/nginx.conf
     depends_on:
-      - swt-backend-api
+      - backend-api
     networks:
       - webnet
 
-  swt-backend-api:
+  backend-api:
     image: demo-api:latest
     ports:
       - "5000:3000"
     deploy:
       restart_policy:
         condition: any
+    replicas: 3
     environment:
       - ASPNETCORE_ENVIRONMENT=InternalDevelopment
-      - FE_URL=http://localhost:3000
+      # - FE_URL=http://localhost:3000
     networks:
       - webnet
 
-  swt-frontend-web-app:
+  frontend-web-app:
     image: frontend-web-app:latest
     ports:
       - "3000:3000"
@@ -39,7 +40,7 @@ services:
       restart_policy:
         condition: any
     depends_on:
-      - swt-backend-api
+      - backend-api
     networks:
       - webnet
 
