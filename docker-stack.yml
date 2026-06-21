@@ -6,7 +6,7 @@ configs:
 
 services:
 
-  nginx:
+  swt-nginx:
     image: nginx:alpine
     ports:
       - "3001:3001"
@@ -14,11 +14,11 @@ services:
       - source: nginx_conf
         target: /etc/nginx/nginx.conf
     depends_on:
-      - backend-api
+      - swt-backend-api
     networks:
       - webnet
 
-  backend-api:
+  swt-backend-api:
     image: demo-api:latest
     ports:
       - "5000:3000"
@@ -31,7 +31,7 @@ services:
     networks:
       - webnet
 
-  frontend-web-app:
+  swt-frontend-web-app:
     image: frontend-web-app:latest
     ports:
       - "3000:3000"
@@ -39,7 +39,7 @@ services:
       restart_policy:
         condition: any
     depends_on:
-      - backend-api
+      - swt-backend-api
     networks:
       - webnet
 
