@@ -5,6 +5,7 @@ import {useLayoutEffect} from "react";
 import {useUserContext} from "~/context/UserContext";
 import {getUser, setUser} from '~/store/User/actions';
 import {useAppContext} from "~/context/AppContext";
+import {formatDate} from "~/utils/formatDate";
 
 function UserList() {
     const {userData} = useAppContext();
@@ -26,8 +27,8 @@ function UserList() {
                     <td>{item?.name}</td>
                     <td>{item?.email}</td>
                     <td>{item?.userName}</td>
-                    <td>{item?.createdAt}</td>
-                    <td>{item?.updatedAt}</td>
+                    <td>{formatDate(item?.createdAt)}</td>
+                    <td>{formatDate(item?.updatedAt)}</td>
                     {userData?.roleName === 'Admin' &&
                     <td>
                         <div className={styles['user-table__actions']}>

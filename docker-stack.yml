@@ -1,0 +1,48 @@
+version: '3.8'
+
+configs:
+  nginx_conf:
+    file: ./Demo.API/nginx.conf
+
+services:
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "3001:3001"
+    configs:
+      - source: nginx_conf
+        target: /etc/nginx/nginx.conf
+    depends_on:
+      - backend-api
+    networks:
+      - webnet
+
+  backend-api:
+    image: demo-api:latest
+    ports:
+      - "5000:3000"
+    deploy:
+      restart_policy:
+        condition: any
+    environment:
+      - ASPNETCORE_ENVIRONMENT=InternalDevelopment
+      - FE_URL=http://localhost:3000
+    networks:
+      - webnet
+
+  frontend-web-app:
+    image: frontend-web-app:latest
+    ports:
+      - "3000:3000"
+    deploy:
+      restart_policy:
+        condition: any
+    depends_on:
+      - backend-api
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: overlay

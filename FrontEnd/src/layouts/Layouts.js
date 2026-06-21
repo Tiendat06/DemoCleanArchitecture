@@ -10,13 +10,15 @@ function Layouts() {
         <>
             {currentLocation.startsWith('/dashboard') ?
                 <div className={clsx(styles["app"])}>
-                    <div className={clsx(styles["app-navbar"])}>
-                        <NavbarHeader />
-                        <Navbar />
-                    </div>
-                    <div className={clsx(styles["app-content"])}>
-                        <Header />
-                        <Body />
+                    <div className={clsx(styles["app-main"])}>
+                        <div className={clsx(styles["app-navbar"])}>
+                            <NavbarHeader />
+                            <Navbar />
+                        </div>
+                        <div className={clsx(styles["app-content"])}>
+                            <Header />
+                            <Body />
+                        </div>
                     </div>
                     <Footer />
                 </div>
